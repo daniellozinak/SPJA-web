@@ -1,0 +1,18 @@
+{% extends 'Tweet/base.html'%}
+{% load django_tables2 %}
+{% block title%}
+ {{title}}
+{% endblock %}
+
+{% block content %}
+<h1> {{tweet.content}} </h1>
+<h2> Comments  </h2>
+{% render_table comments %}
+
+<form method='POST'>
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type = 'submit'> Post Comment </button>
+</form>
+
+{% endblock %}

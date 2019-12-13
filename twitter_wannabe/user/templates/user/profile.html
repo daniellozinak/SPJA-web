@@ -1,0 +1,17 @@
+{% extends 'Tweet/base.html'%}
+{% load django_tables2 %}
+{% block title%}
+ {{title}}
+{% endblock %}
+
+{% block content %}
+{% render_table profile_table %}
+
+<h1>Update Profile</h1>
+<form method='POST'>
+    {% csrf_token %}
+    {{ update_form.as_p }}
+    <button type = 'submit'> update </button>
+</form>
+
+{% endblock %}
